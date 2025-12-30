@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ReWear Market UMT | Sustainable Fashion</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="brand">
+                <div class="logo-circle">RW</div>
+                <div class="logo-text">
+                    <strong>ReWear Market</strong>
+                    <span>UMT 2025</span>
+                </div>
+            </div>
+            <ul class="nav-links">
+                <li><a onclick="showSection('home')">Marketplace</a></li>
+                <li><a href="#impact-section">Impact</a></li>
+                <li><a href="#how-it-works">About</a></li>
+                <li id="user-status">
+                    <button class="btn-outline" onclick="openModal('regModal')">Login</button>
+                </li>
+                <li>
+                    <button class="cart-icon-btn" onclick="openModal('cartModal')">🛒 <span id="cart-count">0</span></button>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home-hero" class="hero">
+        <div class="hero-content">
+            <h1>Sustainable Style for UMT</h1>
+            <p>The #1 student marketplace for pre-loved campus fashion.</p>
+            <button class="btn-filled" onclick="showSection('shop')">Start Shopping</button>
+        </div>
+    </section>
+
+    <section class="container">
+        <div class="info-grid">
+            <div class="info-card">
+                <div class="icon-box">$</div>
+                <h3>Save Money</h3>
+                <p>Access high-quality campus wear at affordable prices.</p>
+            </div>
+            <div class="info-card">
+                <div class="icon-box">♻️</div>
+                <h3>Reduce Waste</h3>
+                <p>Help divert textile waste from landfills.</p>
+            </div>
+            <div class="info-card">
+                <div class="icon-box">👥</div>
+                <h3>Community</h3>
+                <p>Build a sustainable campus culture.</p>
+            </div>
+            <div class="info-card">
+                <div class="icon-box">🌿</div>
+                <h3>Eco-Friendly</h3>
+                <p>Reduce your carbon footprint.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="impact-banner" id="impact-section">
+        <h2>Our Impact So Far</h2>
+        <p>Helping students reuse and save!</p>
+    </section>
+
+    <section class="container" id="how-it-works">
+        <div class="steps-grid">
+            <div class="step-card">
+                <div class="step-icon">📤</div>
+                <h3>1. Donate Items</h3>
+                <p>Adding clothes to the site.</p>
+            </div>
+            <div class="step-card">
+                <div class="step-icon">🛒</div>
+                <h3>2. Shop & Buy</h3>
+                <p>Browse and add to cart.</p>
+            </div>
+            <div class="step-card">
+                <div class="step-icon">🤝</div>
+                <h3>3. Reuse</h3>
+                <p>Complete the purchase.</p>
+            </div>
+        </div>
+    </section>
+
+    <main id="shop" class="container" style="display:none;">
+        <h2> Clothes for Sale</h2>
+        <div id="product-grid" class="grid"></div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <p>© 2025 ReWear Market UMT. A project by Group EcoSphere - Universiti Malaysia Terengganu.</p>
+            <div class="sdg-links">
+                Supporting UN SDGs: No Poverty • Economic Growth • Responsible Consumption • Climate Action
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modals -->
+    <div id="regModal" class="modal">
+        <div class="modal-content">
+            <h2>Welcome Back</h2>
+            <input type="text" id="regName" placeholder="Full Name">
+            <input type="email" id="regEmail" placeholder="UMT Email">
+            <button class="btn-filled" onclick="handleRegister()">Login / Register</button>
+            <button class="btn-text" onclick="closeModal('regModal')">Cancel</button>
+        </div>
+    </div>
+
+    <div id="cartModal" class="modal">
+        <div class="modal-content">
+            <h2>Your Cart</h2>
+            <div id="cart-list"></div>
+            <p><strong>Total: RM <span id="cart-total">0</span></strong></p>
+            <button class="btn-filled" onclick="openCheckout()">Checkout</button>
+            <button class="btn-text" onclick="closeModal('cartModal')">Close</button>
+        </div>
+    </div>
+
+    <div id="checkoutModal" class="modal">
+        <div class="modal-content">
+            <h2>Finalize Your Purchase</h2>
+            <p>Please pay: <strong>RM <span id="pay-amount">0.00</span></strong></p>
+            <div class="bank-box">
+                <p><strong>Bank Name:</strong> RHB BANK (ERVINA THOMAS)</p>
+                <p><strong>Account No:</strong> 16103900094092</p>
+                <p><strong>Recipient:</strong> REWEAR MARKET UMT</p>
+            </div>
+            <p><strong>Or Scan QR:</strong></p>
+            <img id="payment-qr" src="QR_CODE.jpg" alt="Payment QR Code">
+            <button class="btn-filled" onclick="finishOrder()">I Have Paid</button>
+            <button class="btn-text" onclick="closeModal('checkoutModal')">Cancel</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
